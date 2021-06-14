@@ -35,11 +35,13 @@ else:
     # build directory:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _component_func = components.declare_component("streamlit_labelstudio", path=build_dir)
+    _component_func = components.declare_component(
+        "streamlit_labelstudio", path=build_dir)
 
 
 # Define a public function for the package,
 # which wraps the caller to the frontend code
-def st_labelstudio(config, interfaces, user, task):
-    component_value = _component_func(config=config, interfaces=interfaces, user=user, task=task)
+def st_labelstudio(config, interfaces, user, task, key=None):
+    component_value = _component_func(
+        config=config, interfaces=interfaces, user=user, task=task, key=key)
     return component_value
